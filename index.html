@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Australia: The Land of Opportunity</title>
+  
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Reset & Variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --accent-color: #ffd700;
+      --glass-bg: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --text-main: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.8);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--primary-gradient);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      overflow: hidden;
+      color: var(--text-main);
+    }
+
+    /* Dynamic Background Animation */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Ambient Background Glows */
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: 1;
+      will-change: transform; /* OPTIMIZATION: Prevents lag during render */
+    }
+
+    .glow-1 {
+      width: 300px;
+      height: 300px;
+      background: rgba(0, 210, 255, 0.3);
+      top: 15%;
+      left: 20%;
+    }
+
+    .glow-2 {
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 215, 0, 0.15);
+      bottom: 10%;
+      right: 15%;
+    }
+
+    /* Modern Glassmorphism Hero Card */
+    .hero-card {
+      position: relative;
+      z-index: 2;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      padding: 4rem 3rem;
+      border-radius: 24px;
+      text-align: center;
+      max-width: 800px;
+      width: 90%;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    /* Tag / Sub-header */
+    .tagline {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+      background: rgba(255, 215, 0, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    /* Typography */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    h1 span {
+      font-style: italic;
+      font-weight: 400;
+      background: linear-gradient(120deg, #ffffff, #a1c4fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text-sub);
+      max-width: 600px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+
+    /* Modern Hover Button */
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #0f2027;
+      background: #ffffff;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.25);
+      background: var(--accent-color);
+    }
+
+    /* Entry Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 600px) {
+      .hero-card {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED: Decorative elements hidden from screen readers -->
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+
+  <!-- Hero Glass Card -->
+  <main class="hero-card">
+    <span class="tagline">Discover Your Future</span>
+    <h1>Australia: <span>The Land of Opportunity</span></h1>
+    <p>Empowering innovation, vibrant culture, and endless horizons. Step into a world where your potential knows no bounds.</p>
+    <!-- FIXED: Added default behavior to prevent page jumps -->
+    <a href="javascript:void(0)" class="btn">Explore Opportunities</a>
+  </main>
+
+</body>
+</html>
